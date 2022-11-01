@@ -1,6 +1,6 @@
 import '@src/styles/globals.css';
-import '@src/styles/font.css';
 import 'antd/dist/antd.css';
+import '@src/styles/font.css'
 
 import Layout from '@src/components/layout/Layout'
 

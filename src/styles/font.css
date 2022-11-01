@@ -1,53 +1,53 @@
 @font-face{
-    font-family: pretendard;
-    src: url('./font/Pretendard-Thin.ttf');
+    font-family: "pretendard";
+    src: url('./font/Pretendard-Thin.ttf') format("turetype");
     font-weight:100
 }
 
 @font-face{
-    font-family: pretendard;
-    src: url('./font/Pretendard-ExtraLight.ttf');
+    font-family: "pretendard";
+    src: url('./font/Pretendard-ExtraLight.ttf') format("turetype");
     font-weight:200
 }
 
 @font-face{
-    font-family: pretendard;
-    src: url('./font/Pretendard-Light.ttf');
+    font-family: "pretendard";
+    src: url('./font/Pretendard-Light.ttf') format("turetype");
     font-weight:300
 }
 
 @font-face{
-    font-family: pretendard;
-    src: url('./font/Pretendard-Regular.ttf');
+    font-family: "pretendard";
+    src: url('./font/Pretendard-Regular.ttf') format("turetype");
     font-weight:400
 }
 
 @font-face{
-    font-family: pretendard;
-    src: url('./font/Pretendard-Medium.ttf');
+    font-family: "pretendard";
+    src: url('./font/Pretendard-Medium.ttf') format("turetype");
     font-weight:500
 }
 
 @font-face{
-    font-family: pretendard;
-    src: url('./font/Pretendard-SemiBold.ttf');
+    font-family: "pretendard";
+    src: url('./font/Pretendard-SemiBold.ttf') format("turetype");
     font-weight:600
 }
 
 @font-face{
-    font-family: pretendard;
-    src: url('./font/Pretendard-Bold.ttf');
+    font-family: "pretendard";
+    src: url('./font/Pretendard-Bold.ttf') format("turetype");
     font-weight:700
 }
 
 @font-face{
-    font-family: pretendard;
-    src: url('./font/Pretendard-ExtraBold.ttf');
+    font-family: "pretendard";
+    src: url('./font/Pretendard-ExtraBold.ttf') format("turetype");
     font-weight:800
 }
 
 @font-face{
-    font-family: pretendard;
-    src: url('./font/Pretendard-Black.ttf');
+    font-family: "pretendard";
+    src: url('./font/Pretendard-Black.ttf') format("turetype");
     font-weight:900
 }

@@ -19,7 +19,6 @@ const StyledTitleBox = styled.div`
   font-size:18px;
   font-weight: 600;
   padding: 0 30px;
-  letter-spacing: -0.5px;
   img{
     height:35%;
   }
@@ -36,7 +35,7 @@ const StyledMenu = styled.div`
   justify-items: center;
   flex-direction: column;
   color: white;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: 0.3s;
   opacity: ${({selected} : {selected:boolean}) => (selected ? "1" : "0.5")};
