@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputBox } from "../components/InputBox";
+import { InputBox } from "../components/component/InputBox";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {

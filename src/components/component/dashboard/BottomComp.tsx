@@ -2,7 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowTurnUp } from '@fortawesome/free-solid-svg-icons';
 import { Title } from '@src/components/component/Title';
 import { Card } from '@src/components/component/Card';
-import styled from 'styled-components';
+import styled from "@emotion/styled";
+import {StyledInstallStatus, StyledNoticeBox, StyledQandABox} from './bottomCompStyled'
 
 
 // 🔥 종합현황 페이지 > 하단패널 > 설치현황
@@ -25,94 +26,6 @@ const status = [
     },
 ]
 
-const StyledInstallStatus = styled.div`
-    width: 100%;
-    height: calc(100% - 40px);
-    overflow: hidden;
-    .title-box{
-        width: 100%;
-        height:17%;
-        display: flex;
-        justify-content: space-between;
-        background: #F1F1F1;
-        align-items: center;
-        padding: 0 12px;
-        font-weight: 600;
-        .title{
-            font-size: 16px;
-        }
-        .count{
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            font-weight: 400;
-            .number {
-                font-size: 16px;
-                font-weight: 600;
-            }
-        }
-    }
-
-    .install-status-box{
-        width: 100%;
-        height: 66%;
-        display: flex;
-        .label-data-box{
-            width: 35%;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            .label-box{
-                width: 100%;
-                height: 50%;
-                display:flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                .count{
-                    font-size: 16px;
-                    font-weight: 500;
-                }
-            
-                &:nth-child(1){
-                    background: #F5F6F9;
-                }
-                &:nth-child(2){
-                    background: #FDF5F5;
-                }
-            }
-        }
-        .status-box{
-            width:65%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            .status{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 6px;
-                transition: 0.3s;
-                img{
-                    width: 80%;
-                }
-                .data-box{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    line-height: 18px;
-                    .data{
-                        font-size: 16px;
-                        font-weight: 600;
-                    }
-                }
-                &:hover {
-                    opacity: 0.7;
-                }
-            }
-        }
-    }
-`
 
 export const InstallStatus = () => {
     return(
@@ -192,34 +105,6 @@ const notice = [
     },
 ]
 
-const StyledNoticeBox = styled.div`
-    width: 100%;
-    height: calc(100% - 40px);
-    overflow: hidden;
-    .list{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: calc(100% / 5);
-        border-bottom: 1px solid #DEDEDE;
-        transition: 0.25s;
-        cursor: pointer;
-        font-weight: 500;
-        .date{
-            letter-spacing: -1px;
-            font-weight: 400;
-        }
-        &:last-child{
-            border-bottom: none;
-        }
-        &:hover{
-            transform: translateY(-1px);
-            opacity: 0.8;
-        }
-    }
-`
-
 export const NoticeComp = () => {
     return(
         <Card>
@@ -247,59 +132,22 @@ const QnA = [
     {
         q:"네트워크가 없을때 어떻게 해야 하나요?",
         date:"2022-10-17 09:42",
-        a:"네트워크가 없을때 어떻게 해야 하나요?",
-        aDate:"2022-10-17 13:56"
     },
+    {a:"네트워크가 없을때 어떻게 해야 하나요?",
+    aDate:"2022-10-17 13:56"},
     {
         q:"서비스 이용방법이 궁금합니다.",
         date:"2022-10-15 22:38",
-        a:"서비스 이용방법이 궁금합니다.",
-        aDate:"2022-10-16 10:17"
     },
+    {a:"서비스 이용방법이 궁금합니다.",
+    aDate:"2022-10-16 10:17"},
     {
         q:"안내 결과는 어떻게 나오는 건가요?",
         date:"2022-10-15 11:25"
     },
 ]
 
-const StyledQandABox= styled.div`
-    width: 100%;
-    height: calc(100% - 40px);
-    overflow: hidden;
-    .list{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: calc(100% / 5);
-        border-bottom: 1px solid #DEDEDE;
-        transition: 0.25s;
-        cursor: pointer;
-        font-weight: 500;
-        &.reply{
-            padding-left: 6px;
-            .title{
-                color: #385493;
-            }
-        }
-        .icon{
-            transform: rotate(90deg);
-            font-size: 12px;
-        }
-        .date{
-            letter-spacing: -1px;
-            font-weight: 400;
-        }
-        &:last-child{
-            border-bottom: none;
-        }
-        &:hover{
-            transform: translateY(-1px);
-            opacity: 0.8;
-        }
-    }
-   
-`
+
 export const QandAComp = () => {
     return(
         <Card>
@@ -308,16 +156,17 @@ export const QandAComp = () => {
                 <StyledQandABox>
                     {QnA.map((list,i) => {
                         return(
-                            <>
-                            <div className="list" key={i}>
+                            <div className={list.q ? "list" : "list reply"} key={i}>
+                            {list.q ? 
+                               <>
                                 <div className="title">{list.q}</div>
                                 <div className="date">{list.date}</div>
-                            </div>
-                            {list.a ? <div className="list reply" key={"j"+i}>
+                                </>
+                             : <>
                                 <div className="title"><FontAwesomeIcon icon={faArrowTurnUp} className="icon"/> RE: {list.a}</div>
                                 <div className="date">{list.aDate}</div>
-                            </div> : ""}
-                            </>
+                                </>}
+                            </div>
                         )
                     })}
                 </StyledQandABox>

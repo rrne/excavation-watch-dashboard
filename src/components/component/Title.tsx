@@ -1,15 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
-import styled from 'styled-components'
+import styled from "@emotion/styled"
 
 const TitleBox = styled.div`
     display:flex;
     gap:8px;
     align-items:center;
-    height:40px;
+    height:34px;
     
     h3{
-        font-weight: 700;
+        font-weight: 800;
         font-size: 16px;
         margin :0
     }

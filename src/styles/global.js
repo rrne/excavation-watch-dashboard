@@ -1,4 +1,6 @@
-html, body, div, span, applet, object, iframe,
+import { css } from '@emotion/react'
+
+export const reset = css`html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -15,7 +17,6 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -41,3 +42,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+body{
+	font-family: pretendard !important; 
+	font-size: 14px;
+	background:#F2F6F9 !important;
+}
+
+*{ box-sizing:border-box }
+`

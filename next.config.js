@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 
-const withLess = require('next-with-less')
 const withImages = require('next-images');
 
-const nextConfig = withImages(
-   withLess({
+const nextConfig = withImages({
     images: {
       disableStaticImages: true,
     },
@@ -12,10 +10,9 @@ const nextConfig = withImages(
     // useFileSystemPublicRoutes: false, 
     reactStrictMode: true,
     swcMinify: true,
-    compiler:{
-      styledComponents:true
-    }
+    compiler: {
+      emotion: true,
+    },
   })
-)
 
 module.exports = nextConfig

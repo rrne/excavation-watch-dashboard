@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from "../components/Card";
+import { Card } from "../components/component/Card";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
