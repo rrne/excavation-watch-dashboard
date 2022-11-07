@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         `}
       />
      <Script
-        src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY}&autoload=false`}
+        src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY}&autoload=false&libraries=clusterer`}
         strategy="beforeInteractive"
       />
     <Layout>

@@ -9,3 +9,56 @@
 }
 
 @primary-color: #5A76B6;
+
+.@{table-prefix-cls}-wrapper {
+    height: 100%;
+    overflow-y: auto
+  }
+
+.@{table-prefix-cls} {
+    .reset-component();
+    &-thead{
+       
+    }
+    &-thead > tr > th {
+        background: #ecedf0;
+        height: 40px;
+        padding: 10px 16px;
+       
+    }
+
+    &-tbody > tr > td{
+        padding: 10px 16px;
+        height: 40px;
+        position: relative;
+    }
+    &-tbody > tr:nth-child(2n) > td{
+        background: #f5f6f9ab;
+    }
+    &-tbody > tr > td::before{
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 1.5em;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.08);
+    }
+    &-tbody > tr > td:last-child::before{
+        width: 0;
+    }
+}  
+
+::-webkit-scrollbar {
+    width: 6px;  /* 스크롤바의 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5a76b6d0 !important; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #dae1f1d0;  /*스크롤바 뒷 배경 색상*/
+}
