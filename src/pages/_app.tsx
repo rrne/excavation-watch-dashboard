@@ -2,6 +2,7 @@ import '@src/styles/font.css';
 import Script from 'next/script';
 import { css, Global } from '@emotion/react';
 import {reset} from '@src/styles/global.js'
+import '@src/styles/antd.less'
 
 import Layout from '@src/components/layout/Layout'
 

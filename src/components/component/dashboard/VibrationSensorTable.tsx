@@ -1,6 +1,7 @@
 import { Title } from '@src/components/component/Title';
 import styled from "@emotion/styled"
-import UnstyledSelectIntroduction from '@src/components/component/Select'
+// import UnstyledSelectIntroduction from '@src/components/component/Select'
+import SelectComp from '@src/components/component/Select'
 import {useEffect, useState} from 'react';
 import vabrationData from '@src/data/vabrationSensor.json';
 import { Button } from '../Button';
@@ -10,6 +11,8 @@ const StyledVibrationSensorTable = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 6px;
+
     .top-box{
         width: 100%;
         height: 40px;
@@ -50,7 +53,7 @@ const StyledVibrationSensorTable = styled.div`
     }
     .table-box{
         width: 100%;
-        height: calc(100% - 40px);
+        height: calc(100% - 46px);
         display:flex;
     }
 `
@@ -69,13 +72,18 @@ type dataType =
     
 const VibrationSensorTable = () => {
 
-    const [selectData, setSelectData] = useState(vabrationData);
+    const [selectData, setSelectData] = useState<string[]>([""]);
     const [tableData, setTabletData] = useState<dataType[][]>();
 
     //리팩토링 필요함💩
     useEffect(() => {
         const data = [...vabrationData]
-        const data2 = [...vabrationData]
+
+        const selectArr = [];
+        for(let i =0 ; i< vabrationData.length; i++){
+            selectArr.push(vabrationData[i].title)
+        }
+        setSelectData(selectArr)
 
         const dataArr: dataType[][] = [];
         for(let i = 0; i < data.length; i){
@@ -126,11 +134,11 @@ const VibrationSensorTable = () => {
                     <div className="select-box">
                             <div className="select">
                                 <div className="label">1차사업소</div>
-                            <UnstyledSelectIntroduction selectData={selectData} />
+                                <SelectComp options={selectData} />
                             </div>
                             <div className="select">
                                 <div className="label">2차사업소</div>
-                            <UnstyledSelectIntroduction selectData={selectData} />
+                                <SelectComp options={selectData} />
                             </div>
                             <Button label='검색' size='small' />
                     </div>

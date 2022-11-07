@@ -49,10 +49,10 @@ export const StyledInstallStatus = styled.div`
                     font-weight: 500;
                 }
             
-                &:nth-child(1){
+                &:nth-of-type(1){
                     background: #F5F6F9;
                 }
-                &:nth-child(2){
+                &:nth-of-type(2){
                     background: #FDF5F5;
                 }
             }
