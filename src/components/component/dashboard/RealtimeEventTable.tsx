@@ -2,6 +2,7 @@ import { Title } from '@src/components/component/Title';
 import styled from "@emotion/styled"
 import { Table } from 'antd';
 import type { ColumnsType, TableProps } from 'antd/es/table';
+import TableComp from '../Table';
 
 const StyledRealtimeEventTable = styled.div`
     width: 100%;
@@ -120,6 +121,7 @@ interface DataType {
         count: "1회",
     },
   ];
+
   
 const RealtimeEventTable = () => {
     return (
@@ -127,6 +129,7 @@ const RealtimeEventTable = () => {
             <Title title='실시간 진동감지 알람내역' date='2021-12-31 14:15' />
             <div className="table-box">
                 <Table columns={columns} dataSource={data} pagination={false} />;
+                {/* <TableComp thead={columns2} tbody={data2} /> */}
             </div>
         </StyledRealtimeEventTable>
     )

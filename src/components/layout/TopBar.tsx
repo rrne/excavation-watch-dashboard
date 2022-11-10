@@ -49,28 +49,28 @@ const StyledMenu = styled.div`
 const linked = [
   {
     title: "종합현황",
-    img:"dashboard",
-    link:"/",
+    img: "dashboard",
+    link: "",
   },
   {
     title: "진동센서관리",
-    img:"vibration",
-    link:"/vibration"
+    img: "vibration",
+    link: "vibration"
   },
   {
     title: "사용자알람설정",
-    img:"user-event",
-    link:"/user-event"
+    img: "user-event",
+    link: "user-event"
   },
   {
     title: "알람이력/통계",
-    img:"stats",
-    link:"/stats"
+    img: "stats",
+    link: "stats"
   },
   {
     title: "게시판",
-    img:"board",
-    link:"/board"
+    img: "board",
+    link: "board"
   },
 ]
 
@@ -78,18 +78,14 @@ const TopBar = () => {
 
   const router = useRouter();
 
-  const [select, setSelect] = useState({
-    title: "종합현황",
-    img:"dashboard",
-    link:""
-  })
+  const [select, setSelect] = useState("")
 
   useEffect(() => {
     handleSelectLink()
   },[router.pathname])
 
   const handleSelectLink = () => {
-    const filteredLink = linked.filter(list => list.link ===  router.pathname)[0]
+    const filteredLink = linked.filter(list => list.link ===  router.pathname.split("/")[1])[0].link;
     setSelect(filteredLink)
   }
 
@@ -102,8 +98,8 @@ const TopBar = () => {
       <StyledMenuBox>
         {linked.map((list,i) => {
           return(
-              <Link href={list.link} key={i}>
-                <StyledMenu selected={select.link === list.link}>
+              <Link href={list.link === "" ? "/" : `/${list.link}`} key={i}>
+                <StyledMenu selected={select === list.link}>
                       <img src={`/image/menu/${list.img}.png`} alt="" />
                       <div>{list.title}</div>
                 </StyledMenu>
