@@ -16,7 +16,7 @@ const StyledVibrationTable = styled.div`
     }
 `
 
-interface DataType {
+export interface DataType {
     first: string;
     second: string;
     count: number;

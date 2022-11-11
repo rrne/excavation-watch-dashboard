@@ -3,7 +3,8 @@ import { faArrowTurnUp } from '@fortawesome/free-solid-svg-icons';
 import { Title } from '@src/components/component/Title';
 import { Card } from '@src/components/component/Card';
 import styled from "@emotion/styled";
-import {StyledInstallStatus, StyledNoticeBox, StyledQandABox} from './bottomCompStyled'
+import {StyledInstallStatus, StyledNoticeBox, StyledQandABox} from './bottomCompStyled';
+import Image from "next/image";
 
 
 // 🔥 종합현황 페이지 > 하단패널 > 설치현황
@@ -55,7 +56,7 @@ export const InstallStatus = () => {
                     {status.map((list,i) => {
                         return(
                             <div className="status" key={i}>
-                                <img src={`/image/icon/${list.image}.png`} alt="" />
+                                <Image src={`/image/icon/${list.image}.png`} width={36} height={36}/>
                                 <div className="data-box">
                                     <div className="label">{list.title}</div>
                                     <div className="data">
@@ -268,7 +269,7 @@ export const InfoComp = () => {
                     <div className="info-box" key={i}>
                         <Card>
                         <div className='info'>
-                        <img src={`/image/icon/${list.img}.png`} alt="" />
+                        <Image src={`/image/icon/${list.img}.png`} width={40} height={40}/>
                         <span className="title">{list.title}</span>
                         </div>
                         </Card>

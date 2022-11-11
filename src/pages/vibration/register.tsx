@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import SubLayout from '@src/components/component/SubLayout';
+import VibrationRegisterComp from '@src/components/component/vibration/VibrationRegister';
 
 const VibrationRegister: NextPage = () => {
     const menu = {
@@ -22,9 +23,9 @@ const VibrationRegister: NextPage = () => {
     }
 
   return (
-    <div className='vibration'>
-        <SubLayout menu={menu} />
-    </div>
+    <SubLayout menu={menu}>
+        <VibrationRegisterComp/>
+    </SubLayout>
   )
 }
 

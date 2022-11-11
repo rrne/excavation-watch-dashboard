@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import SubLayout from '@src/components/component/SubLayout';
+import CenterChoice from '@src/components/component/user-event/CenterChoice';
 
 const UserEvent: NextPage = () => {
 
@@ -19,9 +20,9 @@ const UserEvent: NextPage = () => {
     }
     
   return (
-    <div className='user-event'>
-         <SubLayout menu={menu} />
-    </div>
+    <SubLayout menu={menu}>
+        <CenterChoice/>
+    </SubLayout>
   )
 }
 

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import {useState, useEffect} from 'react';
+import Image from "next/image";
 
 type MenuType = {
     title:string;
@@ -32,7 +33,7 @@ const SubMenu = ({title, titleImg, menu}:SubMenuProps) => {
     return (
         <div className="sub-menu">
             <div className="title-box">
-                <img src={`/image/menu/${titleImg}_blue.png`} alt="" />
+                <Image src={`/image/menu/${titleImg}_blue.png`} width={30} height={30}/>
                 <span>{title}</span>
             </div>
             <div className="menu-list">

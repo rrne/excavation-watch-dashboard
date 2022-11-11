@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import { useRouter } from 'next/router';
 import {useState, useEffect} from 'react';
 import Link from 'next/link'
+import Image from "next/image";
 
 const StyledTopBar = styled.div`
   width:100%;
@@ -92,7 +93,7 @@ const TopBar = () => {
   return (
     <StyledTopBar>
       <StyledTitleBox>
-        <img src="/image/favicon.png" alt="" />
+        <img src={require('public/image/favicon.png')} alt="" />
         <div>지중송전선로 굴착공사 감지시스템</div>
       </StyledTitleBox>
       <StyledMenuBox>
@@ -100,8 +101,8 @@ const TopBar = () => {
           return(
               <Link href={list.link === "" ? "/" : `/${list.link}`} key={i}>
                 <StyledMenu selected={select === list.link}>
-                      <img src={`/image/menu/${list.img}.png`} alt="" />
-                      <div>{list.title}</div>
+                    <Image src={`/image/menu/${list.img}.png`} width={40} height={40}/>
+                    <div>{list.title}</div>
                 </StyledMenu>
               </Link>
           )

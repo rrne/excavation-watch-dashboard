@@ -9,7 +9,6 @@ const StyledInputBox = styled.div`
 
 const StyledTitle = styled.div`
     font-weight: 600;
-    font-size: 16px;
 `
 
 const StyledInput = styled.input`
@@ -20,6 +19,7 @@ const StyledInput = styled.input`
     width: 100%;
     border-radius: 8px;
     outline: none;
+    text-align: center;
     &:read-only{
         background: #EDF0F2;
     }
@@ -35,7 +35,7 @@ export const InputBox = ({title,value, readOnly=false}:InputBoxProps) => {
     return(
         <StyledInputBox>
             <StyledTitle>{title}</StyledTitle>
-            <StyledInput readOnly={readOnly}>{value}</StyledInput>
+            <StyledInput readOnly={readOnly} defaultValue={value}></StyledInput>
         </StyledInputBox>
     )
 }
