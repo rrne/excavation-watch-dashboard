@@ -45,6 +45,7 @@ const StyledSubLayout = styled.div`
                     cursor: pointer;
                     transition: 0.3s;
                     opacity: 0.5;
+                    position: relative;
                     
                     .circle{
                         width: 4px;
@@ -54,6 +55,20 @@ const StyledSubLayout = styled.div`
                     }
                     &:hover{
                         opacity:0.8;
+                    }
+
+                    .submenu-list{
+                        position: absolute;
+                        top: calc(100% + 20px);
+                        left: 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        z-index: 1;
+                       .sub-list{
+                        display: flex;
+                        gap: 8px;
+                       }
                     }
                 }
                 .select{
@@ -66,6 +81,7 @@ const StyledSubLayout = styled.div`
         width: 87%;
         height: 100%;
         padding: 20px;
+        
     }
 `
 

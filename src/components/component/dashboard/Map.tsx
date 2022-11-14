@@ -39,7 +39,7 @@ const MapComp = () => {
             level={13}
         >
             <MarkerClusterer
-            averageCenter={true} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+            averageCenter={false} // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
             minLevel={10} // 클러스터 할 최소 지도 레벨
             >
             {positions?.map((pos) => (

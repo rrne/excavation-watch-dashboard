@@ -3,9 +3,15 @@ import { useRouter } from 'next/router';
 import {useState, useEffect} from 'react';
 import Image from "next/image";
 
+
+type SubType = {
+    title:string;
+    link:string;
+}
+
 type MenuType = {
     title:string;
-    subMenu?: string[]
+    subMenu?: SubType[]
     link: string
 }
 
@@ -43,9 +49,13 @@ const SubMenu = ({title, titleImg, menu}:SubMenuProps) => {
                         <div className={subSelect === list.link ? "select list" :"list"}>
                             <div className="circle"></div>
                             <div className="span">{list.title}</div>
+                            <div className="submenu-list">
                             {list?.subMenu?.map((subList,k) => {return(
-                                <div className="sub-list" key={"chlid"+k}>{subList}</div>
+                                <Link href={list.link} key={k}>
+                                <div className={subSelect === list.link ? "select sub-list" :"sub-list"} key={"chlid"+k}><span>-</span>{subList.title}</div>
+                                </Link>
                             )})}
+                            </div>
                         </div>
                         </Link>
                     )
