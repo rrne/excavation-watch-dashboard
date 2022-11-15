@@ -1,0 +1,71 @@
+{
+    "vibration":{
+        "title": "진동센서관리",
+        "titleImg":"vibration",
+        "menu":[
+            {
+                "title":"등록현황",
+                "link":"/vibration"
+            },
+            {
+                "title":"수정/삭제",
+                "link":"/vibration/modify"
+            },
+            {
+                "title":"신규등록",
+                "link":"/vibration/register"
+            }
+        ]
+    },
+    "userEvent":{
+        "title": "사용자알람설정",
+        "titleImg":"user-event",
+        "menu":[
+            {
+                "title":"사업소 선택",
+                "link":"/user-event"
+            },
+            {
+                "title":"사용자 선택",
+                "link":"/user-event/user"
+            }
+        ]
+    },
+    "stats":{
+            "title": "알람이력/통계",
+            "titleImg":"stats",
+            "menu":[
+                {
+                    "title":"알림이력",
+                    "link":"/stats"
+                },
+                {
+                    "title":"통계",
+                    "link":"/stats/count",
+                    "subMenu":[{
+                        "title":"설치수량",
+                        "link":"/stats/count"
+                    },
+                    {
+                        "title":"알람횟수",
+                        "link":"/stats/alarm"
+                    }
+                ]
+                }
+            ]
+    },
+    "board":{
+        "title": "게시판",
+        "titleImg":"board",
+        "menu":[
+            {
+                "title":"공지사항",
+                "link":"/board"
+            },
+            {
+                "title":"Q&A",
+                "link":"/board/qna"
+            }
+        ]
+    }
+}

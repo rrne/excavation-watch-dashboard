@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import SubMenu, {SubMenuProps} from "./SubMenu";
 
+// 스타일✨
 const StyledSubLayout = styled.div`
     width: 100%;
     height: 100%;
@@ -36,6 +37,7 @@ const StyledSubLayout = styled.div`
                 margin-left: 30px;
                 padding: 16px;
                 gap: 24px;
+                position: relative;
                
                 .list{
                     display: flex;
@@ -45,7 +47,6 @@ const StyledSubLayout = styled.div`
                     cursor: pointer;
                     transition: 0.3s;
                     opacity: 0.5;
-                    position: relative;
                     
                     .circle{
                         width: 4px;
@@ -56,24 +57,33 @@ const StyledSubLayout = styled.div`
                     &:hover{
                         opacity:0.8;
                     }
-
-                    .submenu-list{
-                        position: absolute;
-                        top: calc(100% + 20px);
-                        left: 0;
-                        display: flex;
-                        flex-direction: column;
-                        gap: 20px;
-                        z-index: 1;
-                       .sub-list{
-                        display: flex;
-                        gap: 8px;
-                       }
-                    }
                 }
                 .select{
                         opacity: 1;
                     }
+                .submenu-list{
+                    position: absolute;
+                    top: calc(100% + 10px);
+                    left: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    z-index: 1;
+                    
+                    .sub-list{
+                        cursor: pointer;
+                        transition: 0.3s;
+                        display: flex;
+                        gap: 8px;
+                        opacity: 0.5;
+                        &.select{
+                            opacity: 1;
+                        }
+                        &:hover{
+                            opacity:0.8;
+                        }
+                    }
+                }
             }
         }
     }
