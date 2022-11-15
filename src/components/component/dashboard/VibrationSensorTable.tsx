@@ -6,6 +6,7 @@ import {useEffect, useState} from 'react';
 import vabrationData from '@src/data/vabrationSensor.json';
 import { Button } from '../Button';
 
+// 스타일✨
 const StyledVibrationSensorTable = styled.div`
     width: 100%;
     height: 100%;
@@ -58,6 +59,7 @@ const StyledVibrationSensorTable = styled.div`
     }
 `
 
+// 타입선언🚀
 type dataType = 
     {
         title: string | null;
@@ -70,6 +72,7 @@ type dataType =
         };
     }
     
+
 const VibrationSensorTable = () => {
 
     const [selectData, setSelectData] = useState<string[]>([""]);
@@ -153,6 +156,7 @@ const VibrationSensorTable = () => {
 
 export default VibrationSensorTable;
 
+// 스타일✨
 const StyledTableComp = styled.div`
     width: calc(100% / 3);
     height: 100%;
@@ -248,6 +252,7 @@ const StyledTableComp = styled.div`
     }
 `
 
+// 자식 테이블 컴포넌트
 const TableComp = ({sixList}:{sixList:dataType[]}) => {
     return(
         <StyledTableComp>

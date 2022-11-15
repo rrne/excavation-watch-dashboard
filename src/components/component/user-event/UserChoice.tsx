@@ -6,6 +6,7 @@ import UsereventUser from '@src/data/UsereventUser.json';
 import { useEffect, useState } from 'react';
 import { Button } from "../Button";
 
+// 스타일✨
 const StyledCenterChoice = styled.div`
     width: 100%;
     height: 100%;
@@ -61,7 +62,7 @@ const StyledCenterChoice = styled.div`
             .tr{
                 width: 100%;
                 display: flex;
-                flex-grow: 1;
+                height: calc(100% / 15);
                 align-items: center;
                 .td{
                     border-right: 1px solid #DEDEDE;
@@ -103,6 +104,17 @@ const StyledCenterChoice = styled.div`
         justify-content: flex-end;
     }
 `
+// 타입선언🚀
+type PartUser = {
+    name:string;
+    check:boolean
+}
+interface CheckboxTable {
+    first:string;
+    second:string;
+    part:string;
+    partUser:PartUser[]
+}
 
 const CenterChoice = () => {
 
@@ -139,22 +151,24 @@ const CenterChoice = () => {
 
 export default CenterChoice;
 
-type PartUser = {
-    name:string;
-    check:boolean
-}
-interface CheckboxTable {
-    first:string;
-    second:string;
-    part:string;
-    partUser:PartUser[]
-}
-
+// 자식 테이블 컴포넌트 
 const CheckBoxTable = ({data}:{data:CheckboxTable[] | undefined}) => {
 
     const [checkData,setCheckData] = useState<CheckboxTable[]>();
     useEffect(() => {
-        setCheckData(data)
+        if(!data) return;
+        let dataArr = [...data];
+        for(let i = dataArr.length; i < 15; i++){
+                dataArr[i] = {
+                    "first":"",
+                    "second": "",
+                    "part":"",
+                    "partUser":[]
+                }
+        }
+        setCheckData(dataArr);
+        console.log();
+        
     },[data])
 
     const columns = [{

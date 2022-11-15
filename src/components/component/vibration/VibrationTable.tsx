@@ -4,6 +4,7 @@ import type { ColumnsType } from 'antd/es/table';
 import styled from "@emotion/styled";
 import { useRouter } from 'next/router';
 
+// 스타일✨
 const StyledVibrationTable = styled.div`
     width: 100%;
     height: 100%;
@@ -16,6 +17,7 @@ const StyledVibrationTable = styled.div`
     }
 `
 
+// 타입선언🚀
 export interface DataType {
     first: string;
     second: string;
@@ -29,6 +31,7 @@ export interface DataType {
     ect?: string;
 }
 
+// 테이블 헤더
 const columns: ColumnsType<DataType> = [
     {
       title: '1차사업소',

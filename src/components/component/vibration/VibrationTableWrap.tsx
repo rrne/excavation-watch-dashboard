@@ -15,6 +15,9 @@ const VibrationTableWrap = () => {
     )
 }
 
+export default VibrationTableWrap;
+
+// 스타일✨
 const StyledVibrationTableWrap = styled.div`
     width: 100%;
     height: 100%;
@@ -66,8 +69,7 @@ const StyledVibrationTableWrap = styled.div`
     }
 `
 
-export default VibrationTableWrap;
-
+// 자식 테이블 컴포넌트
 const TableComp = () => {
     const [selectData, setSelectData] = useState<string[]>([""]);
 

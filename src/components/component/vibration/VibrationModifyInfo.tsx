@@ -11,6 +11,7 @@ import { InputBox } from "@src/components/component/InputBox";
 import { Checkbox } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
+// 스타일✨
 const StyledModifyInfo = styled.div`
     width:100%;
     height: 100%;
@@ -208,13 +209,12 @@ const VibrationModifyInfo = () => {
 
 export default VibrationModifyInfo;
 
-  const columns = ["1차사업소","2차사업소","센서번호","위치설명","설비명","구분"]
 
+// 수정 테이블 자식 컴포넌트
 const ModifyTable = ({data}:{data : DataType | undefined}) => {
-  
+    
     const [check, setCheck] = useState<boolean>(true);
-
-
+    const columns = ["1차사업소","2차사업소","센서번호","위치설명","설비명","구분"]
     const onChange = (e: CheckboxChangeEvent) => {
         console.log(`checked = ${e.target.checked}`);
       };

@@ -11,7 +11,8 @@ import { InputBox } from "@src/components/component/InputBox";
 import { Checkbox } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
-const StyledModifyInfo = styled.div`
+// 스타일✨
+const StyledRegisterInfo = styled.div`
     width:100%;
     height: 100%;
     .top-box{
@@ -172,12 +173,11 @@ const VibrationRegister = () => {
         }
         setSelectData(selectArr);
         if(router.query.data)  setModifyData(JSON.parse(router.query.data as string))
-
     },[])
 
     return(
         <Card>
-            <StyledModifyInfo>
+            <StyledRegisterInfo>
                 <div className="top-box">
                     <div className="title">진동센서 조회</div>
                     <div className="filter-box">
@@ -196,20 +196,19 @@ const VibrationRegister = () => {
                                 <Button label='생성' size='small' />
                     </div>
                 </div>
-                <ModifyTable data={modifyData} />
-            </StyledModifyInfo>
+                <RegisterTable data={modifyData} />
+            </StyledRegisterInfo>
         </Card>
     )
 }
 
 export default VibrationRegister;
 
-  const columns = ["1차사업소","2차사업소","센서번호","위치설명","설비명","구분"]
-
-const ModifyTable = ({data}:{data : DataType | undefined}) => {
-  
+// 생성 테이블 자식 컴포넌트
+const RegisterTable = ({data}:{data : DataType | undefined}) => {
+    
     const [check, setCheck] = useState<boolean>(true);
-
+    const columns = ["1차사업소","2차사업소","센서번호","위치설명","설비명","구분"]
 
     const onChange = (e: CheckboxChangeEvent) => {
         console.log(`checked = ${e.target.checked}`);

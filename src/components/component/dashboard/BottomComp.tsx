@@ -8,7 +8,6 @@ import Image from "next/image";
 
 
 // 🔥 종합현황 페이지 > 하단패널 > 설치현황
-
 const status = [
     {
         title: "정상",
@@ -26,7 +25,6 @@ const status = [
         count: 14
     },
 ]
-
 
 export const InstallStatus = () => {
     return(
@@ -128,7 +126,6 @@ export const NoticeComp = () => {
 
 
 // 🔥 종합현황 페이지 > 하단패널 > Q&A
-
 const QnA = [
     {
         q:"네트워크가 없을때 어떻게 해야 하나요?",

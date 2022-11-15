@@ -6,7 +6,7 @@ import UsereventCenter from '@src/data/UsereventCenter.json';
 import { useEffect, useState } from 'react';
 import { Button } from "../Button";
 
-
+// 스타일✨
 const StyledUserChoice = styled.div`
     width: 100%;
     height: 100%;
@@ -98,12 +98,20 @@ const StyledUserChoice = styled.div`
         justify-content: flex-end;
     }
 `
+// 타입선언🚀
+type SecondKey = {
+    title:string;
+    checked:boolean
+}
+
+interface CheckboxTable {
+    first:string;
+    second:SecondKey[]
+}
 
 const UserChoice = () => {
-
     
     const [checkTableData, setCheckTableData] = useState<CheckboxTable[]>()
-
     useEffect(() =>{
         setCheckTableData(UsereventCenter)
     },[])
@@ -135,16 +143,7 @@ const UserChoice = () => {
 
 export default UserChoice;
 
-type SecondKey = {
-    title:string;
-    checked:boolean
-}
-
-interface CheckboxTable {
-    first:string;
-    second:SecondKey[]
-}
-
+// 테이블 자식 컴포넌트
 const CheckBoxTable = ({data}:{data:CheckboxTable[] | undefined}) => {
 
     const [checkData,setCheckData] = useState<CheckboxTable[]>();
