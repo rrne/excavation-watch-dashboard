@@ -32,15 +32,27 @@ const SubMenu = ({title, titleImg, menu}:SubMenuProps) => {
     
     // 서브메뉴 router path 함수
     const handleSelectLink = () => {
-        let filteredLink:any = menu.filter(list => list.link === router.pathname || list.subMenu?.filter(sublist => sublist.link === router.pathname)[0])[0];
-        
-        if(filteredLink.subMenu){
-            filteredLink = menu.filter(list => list.subMenu)[0]?.subMenu?.filter(list => list.link === router.pathname)[0];
-        }
-        
+        const {pid} = router.query
 
-        setSubSelect(filteredLink?.link);
+        if(pid){
+            const pathname = router.pathname.split('/').slice(0, -1).join('/')
+
+            let filteredLink:any = menu.filter(list => list.link === pathname || list.subMenu?.filter(sublist => sublist.link === pathname)[0])[0];
         
+            if(filteredLink.subMenu){
+                filteredLink = menu.filter(list => list.subMenu)[0]?.subMenu?.filter(list => list.link === router.pathname)[0];
+            }
+            setSubSelect(filteredLink?.link);
+        }else{
+            let filteredLink:any = menu.filter(list => list.link === router.pathname || list.subMenu?.filter(sublist => sublist.link === router.pathname)[0])[0];
+            
+            if(filteredLink.subMenu){
+                filteredLink = menu.filter(list => list.subMenu)[0]?.subMenu?.filter(list => list.link === router.pathname)[0];
+            }
+            
+            setSubSelect(filteredLink?.link);
+     
+        }
     }
 
     return (

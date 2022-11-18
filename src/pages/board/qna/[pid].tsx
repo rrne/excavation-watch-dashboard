@@ -1,15 +1,14 @@
 import type { NextPage } from 'next';
 import SubLayout from '@src/components/component/SubLayout';
 import menu from '@src/data/menuLink.json';
-import NoticeTableWrap from '@src/components/component/board/NoticeTable';
 
-const Board: NextPage = () => {
+const Post: NextPage = () => {
     
   return (
     <SubLayout menu={menu.board}>
-        <NoticeTableWrap />
+        <div>?????</div>
     </SubLayout>
-  )
+    )
 }
 
-export default Board;
+export default Post;

@@ -1,0 +1,137 @@
+[
+    {
+        "first": "서울본부",
+        "pipeline": 32,
+        "elecline": 6,
+        "total": 38,
+        "commun": 1,
+        "batery": 2,
+        "vibration": 1
+    },
+    {
+        "first": "남서울본부",
+        "pipeline": 25,
+        "elecline": 3,
+        "total": 28,
+        "commun": 0,
+        "batery": 1,
+        "vibration": 1
+    },
+    {
+        "first": "인천본부",
+        "pipeline": 30,
+        "elecline": 6,
+        "total": 36,
+        "commun": 1,
+        "batery": 2,
+        "vibration": 1
+    },
+    {
+        "first": "경기북부본부",
+        "pipeline": 33,
+        "elecline": 8,
+        "total": 41,
+        "commun": 2,
+        "batery": 3,
+        "vibration": 2
+    },
+    {
+        "first": "경기본부",
+        "pipeline": 28,
+        "elecline": 5,
+        "total": 33,
+        "commun": 0,
+        "batery": 1,
+        "vibration": 0
+    },
+    {
+        "first": "강원본부",
+        "pipeline": 20,
+        "elecline": 2,
+        "total": 22,
+        "commun": 1,
+        "batery": 0,
+        "vibration": 0
+    },
+    {
+        "first": "충북본부",
+        "pipeline": 26,
+        "elecline": 3,
+        "total": 29,
+        "commun": 0,
+        "batery": 2,
+        "vibration": 1
+    },
+    {
+        "first": "대전세종충남본부",
+        "pipeline": 18,
+        "elecline": 2,
+        "total": 20,
+        "commun": 1,
+        "batery": 2,
+        "vibration": 1
+    },
+    {
+        "first": "전북본부",
+        "pipeline": 15,
+        "elecline": 2,
+        "total": 17,
+        "commun": 0,
+        "batery": 1,
+        "vibration": 1
+    },
+    {
+        "first": "광주전남본부",
+        "pipeline": 8,
+        "elecline": 4,
+        "total": 12,
+        "commun": 1,
+        "batery": 0,
+        "vibration": 1
+    },
+    {
+        "first": "대구본부",
+        "pipeline": 22,
+        "elecline": 4,
+        "total": 26,
+        "commun": 1,
+        "batery": 2,
+        "vibration": 2
+    },
+    {
+        "first": "경북본부",
+        "pipeline": 14,
+        "elecline": 2,
+        "total": 16,
+        "commun": 0,
+        "batery": 1,
+        "vibration": 1
+    },
+    {
+        "first": "부산울산본부",
+        "pipeline": 11,
+        "elecline": 6,
+        "total": 17,
+        "commun": 1,
+        "batery": 1,
+        "vibration": 0
+    },
+    {
+        "first": "경남본부",
+        "pipeline": 20,
+        "elecline": 5,
+        "total": 25,
+        "commun": 0,
+        "batery": 1,
+        "vibration": 0
+    },
+    {
+        "first": "제주본부",
+        "pipeline": 16,
+        "elecline": 2,
+        "total": 18,
+        "commun": 1,
+        "batery": 0,
+        "vibration": 2
+    }
+]

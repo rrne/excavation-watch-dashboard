@@ -89,7 +89,7 @@ const VibrationTable = () => {
         <StyledVibrationTable>
         <Table columns={columns} dataSource={data} pagination={{pageSize:15, position: ["bottomCenter"]}}  
         onRow={(record, rowIndex) => {return {onClick: () => {onRowClick(record)}}}}/>
-    </StyledVibrationTable>
+      </StyledVibrationTable>
     )
 }
 
