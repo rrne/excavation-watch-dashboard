@@ -4,8 +4,10 @@ import { Button } from '@src/components/component/Button';
 import SelectComp from '@src/components/component/Select'
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import noticeData from '@src/data/boardNoticeData.json'
+import qnaData from '@src/data/boardQnAData.json'
 import { useRouter } from 'next/router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowTurnUp } from '@fortawesome/free-solid-svg-icons';
 
 // style✨
 const StyledQnATableWrap = styled.div`
@@ -61,6 +63,11 @@ const StyledQnATableWrap = styled.div`
         .ant-table-wrapper{
             width: 100%;
         }
+        .reply{
+            .replyIcon{
+                transform: rotate(90deg);
+            }
+        }
     }
 `
 const QnATableWrap = () => {
@@ -89,11 +96,13 @@ export default QnATableWrap;
 
 
 export interface DataType {
-    no: number;
+    no?: number;
     title: string;
     writer: string;
     date: string;
     count: number;
+    reply?:boolean;
+    replyNo?:number;
 }
 
 // 테이블 헤더
@@ -102,13 +111,20 @@ const columns: ColumnsType<DataType> = [
       title: '번호',
       dataIndex: 'no',
       width: 50,
-      align:"center"
+      align:"center",
+      render: (a,b,c) => b.reply ? "" : b.no
     },
     {
       title: '제목',
       dataIndex: 'title',
       width: 500,
-      
+      render: (a,b,c) => {
+        return(
+            b.reply ? <div className="reply">
+            <FontAwesomeIcon icon={faArrowTurnUp} className="replyIcon" /> <span>RE: {b.title}</span>
+            </div> : b.title
+        )
+      }
     },
     {
       title: '작성자',
@@ -140,6 +156,6 @@ const QnATable = () => {
     }
 
     return(
-        <Table columns={columns} dataSource={noticeData} pagination={{pageSize:15, position: ["bottomCenter"]}} onRow={(record, rowIndex) => {return {onClick: () => {onRowClick(record)}}}} />
+        <Table columns={columns} dataSource={qnaData} pagination={{pageSize:15, position: ["bottomCenter"]}} onRow={(record, rowIndex) => {return {onClick: () => {onRowClick(record)}}}} />
     )
 }

@@ -172,11 +172,7 @@ const VibrationModifyInfo = () => {
             selectArr.push(vabrationData[i].title)
         }
         setSelectData(selectArr);
-        console.log(router.query.data);
-        console.log(router);
-        
-        
-        if(router.query.data)  setModifyData(JSON.parse(router.query.data as string))
+        if(router.query.data) setModifyData(JSON.parse(router.query.data as string))
 
     },[])
 

@@ -27,11 +27,12 @@ interface ButtonProps {
    label: string;
    size?: 'small' | 'medium' | 'large';
    color?: 'default'| 'sub' | 'point' | 'red';
+   onClick?: () => void;
 }
 
-export const Button = ({label, size="large", color="default"}:ButtonProps) => {
+export const Button = ({label, size="large", color="default", onClick}:ButtonProps) => {
     return(
-        <StyledButton size={size} color={color} >
+        <StyledButton size={size} color={color} onClick={onClick} >
            {label}
         </StyledButton>
     )
