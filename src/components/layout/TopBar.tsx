@@ -9,25 +9,48 @@ const StyledTopBar = styled.div`
   height:80px;
   background: #0F2E5A;
   display: flex;
+  .admin-box{
+    width: 150px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: white;
+    img{
+      width: 32px;
+    }
+    .user-box{
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      .user{
+        font-weight: 600;
+        font-size: 16px;
+      }
+    }
+  }
 `
 
 const StyledTitleBox = styled.div`
   display: flex;
   gap: 8px;
   align-items: center;
-  width: 25%;
+  width: 20%;
   color: white;
   font-size:18px;
   font-weight: 600;
   padding: 0 30px;
   img{
+    cursor: pointer;
     height:35%;
+  }
+  .title{
+    cursor: pointer;
   }
 `
 const StyledMenuBox = styled.div`
   display: flex;
   align-items: center;
-  width: 65%;
+  width: calc(80% - 150px);
   justify-content: space-around;
 `
 const StyledMenu = styled.div`
@@ -73,6 +96,11 @@ const linked = [
     img: "board",
     link: "board"
   },
+  {
+    title: "사용자관리",
+    img: "admin",
+    link: "admin"
+  },
 ]
 
 const TopBar = () => {
@@ -90,11 +118,14 @@ const TopBar = () => {
     setSelect(filteredLink)
   }
 
+  const handleMainlink = () => {
+    router.push('/')
+  }
   return (
     <StyledTopBar>
-      <StyledTitleBox>
+      <StyledTitleBox onClick={handleMainlink}>
         <img src={require('public/image/favicon.png')} alt="" />
-        <div>지중송전선로 굴착공사 감지시스템</div>
+        <div className="title">지중송전선로 굴착공사 감지시스템</div>
       </StyledTitleBox>
       <StyledMenuBox>
         {linked.map((list,i) => {
@@ -108,6 +139,13 @@ const TopBar = () => {
           )
         })}
       </StyledMenuBox>
+      <div className="admin-box">
+        <img src={require('public/image/icon/userIcon.png')} alt="" />
+        <div className="user-box">
+          <div className="user">홍길동</div>
+          <div className="center">보안 안전팀</div>
+        </div>
+      </div>
     </StyledTopBar>
   )
 }

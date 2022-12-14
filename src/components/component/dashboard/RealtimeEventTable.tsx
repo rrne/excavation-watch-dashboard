@@ -34,6 +34,7 @@ const columns: ColumnsType<DataType> = [
   {
     title: '순번',
     dataIndex: 'idx',
+    width:70,
   },
   {
     title: '1차사업소',
@@ -66,6 +67,7 @@ const columns: ColumnsType<DataType> = [
   {
     title: '횟수(1일간)',
     dataIndex: 'count',
+    width:100
   }
 ];
 
@@ -128,10 +130,9 @@ const data: DataType[] = [
 const RealtimeEventTable = () => {
     return (
         <StyledRealtimeEventTable>
-            <Title title='실시간 진동감지 알람내역' date='2021-12-31 14:15' />
+            <Title title='실시간 진동감지 알람내역' date='2021-12-31 14:15' link='/stats' />
             <div className="table-box">
-                <Table columns={columns} dataSource={data} pagination={false} />;
-                {/* <TableComp thead={columns2} tbody={data2} /> */}
+                <Table columns={columns} dataSource={data} pagination={false} size="small" tableLayout="auto" scroll={{y: "100%"}}/>
             </div>
         </StyledRealtimeEventTable>
     )

@@ -31,7 +31,7 @@ interface InputBoxProps {
    readOnly?:boolean
 }
 
-export const InputBox = ({title,value, readOnly=false}:InputBoxProps) => {
+export const InputBox = ({title, value, readOnly=false}:InputBoxProps) => {
     return(
         <StyledInputBox>
             <StyledTitle>{title}</StyledTitle>

@@ -69,6 +69,9 @@ const StyledQnATableWrap = styled.div`
             }
         }
     }
+    .ant-table-row{
+      cursor: pointer;
+    }
 `
 const QnATableWrap = () => {
     const selectData = ["제목","작성자"]

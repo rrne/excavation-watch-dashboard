@@ -11,8 +11,8 @@ type SubType = {
 
 type MenuType = {
     title:string;
-    subMenu?: SubType[]
-    link: string
+    subMenu?: SubType[];
+    link: string;
 }
 
 export interface SubMenuProps {
@@ -23,10 +23,10 @@ export interface SubMenuProps {
 
 const SubMenu = ({title, titleImg, menu}:SubMenuProps) => {
     const router = useRouter();
-    
     const [subSelect, setSubSelect] = useState<string>("")
 
     useEffect(() => {
+        if(router.pathname === "/admin") return;
         handleSelectLink()
     },[router.pathname])
     
@@ -49,20 +49,18 @@ const SubMenu = ({title, titleImg, menu}:SubMenuProps) => {
             if(filteredLink.subMenu){
                 filteredLink = menu.filter(list => list.subMenu)[0]?.subMenu?.filter(list => list.link === router.pathname)[0];
             }
-            
             setSubSelect(filteredLink?.link);
-     
         }
     }
 
     return (
         <div className="sub-menu">
             <div className="title-box">
-                <Image src={`/image/menu/${titleImg}_blue.png`} width={30} height={30}/>
+                <Image src={`/image/menu/${titleImg}_blue.png`} width={30} height={30} />
                 <span>{title}</span>
             </div>
             <div className="menu-list">
-                {menu.map((list,i)=>{
+                {menu.map((list,i) => {
                     return(
                     <div key={i}>
                         <Link href={list.link}>
@@ -72,11 +70,11 @@ const SubMenu = ({title, titleImg, menu}:SubMenuProps) => {
                         </div>
                         </Link>
                         <div className="submenu-list">
-                        {list?.subMenu?.map((subList,k) => {return(
+                        { list?.subMenu?.map((subList,k) => {return(
                             <Link href={subList.link} key={k}>
                             <div className={subSelect === subList.link ? "select sub-list" :"sub-list"} key={"chlid"+ k }><span>-</span>{subList.title}</div>
                             </Link>
-                        )})}
+                        )}) }
                         </div>
                     </div>
                     )

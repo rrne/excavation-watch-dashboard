@@ -130,7 +130,7 @@ const VibrationSensorTable = () => {
         <StyledVibrationSensorTable>
             <div className="top-box">
                 <div className="title-box">
-                    <Title title='진동센서 설치수량' date='2021-12-31 14:15' />
+                    <Title title='진동센서 설치수량' date='2021-12-31 14:15' link='/vibration' />
                 </div>
                 <div className="filter-box">
                     <div className="title">사업소 조회</div>

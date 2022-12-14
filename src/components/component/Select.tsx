@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const StyledSelect = styled.div<{size:string}>`
   box-sizing: border-box;
-  min-width: ${(props) => (props.size  === "default" ? '170px' : "90px")};
+  min-width: ${(props) => (props.size  === "default" ? '170px' : "full" ?"100%" :"90px")};
   .ant-select{
     width:100%;
   }

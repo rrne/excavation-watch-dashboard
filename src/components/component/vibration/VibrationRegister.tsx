@@ -6,10 +6,11 @@ import SelectComp from '@src/components/component/Select'
 import { Button } from '@src/components/component/Button';
 import { useRouter } from "next/router";
 import { DataType } from "./VibrationTable";
-import ModifyMap from "./ModifyMap";
+import RegisterMap from "./RegisterMap";
 import { InputBox } from "@src/components/component/InputBox";
 import { Checkbox } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import type { kpostion } from "./ModifyMap";
 
 // 스타일✨
 const StyledRegisterInfo = styled.div`
@@ -67,6 +68,7 @@ const StyledRegisterInfo = styled.div`
                 flex-direction: column;
                 border-top: 1px solid #DEDEDE;
                 border-bottom: 1px solid #DEDEDE;
+                
                 .thead{
                     width: 100%;
                     background: #F1F1F1;
@@ -209,11 +211,17 @@ const RegisterTable = ({data}:{data : DataType | undefined}) => {
     
     const [check, setCheck] = useState<boolean>(true);
     const columns = ["1차사업소","2차사업소","센서번호","위치설명","설비명","구분"]
+    const [position, setPosition] = useState<string>("")
 
     const onChange = (e: CheckboxChangeEvent) => {
         console.log(`checked = ${e.target.checked}`);
       };
 
+      const getPosition = (value:kpostion) => {
+        if(!value) return;
+        const inputPos = `${value.lng.toFixed(7)}/${value.lat.toFixed(7)}`
+        setPosition(inputPos)
+      }
     return(
         <div className="modify-table">
             <div className="table-box">
@@ -225,29 +233,26 @@ const RegisterTable = ({data}:{data : DataType | undefined}) => {
                     )})}
                 </div>
                 <div className="tbody">
-                    <input className="td">{data?.first}</input>
-                    <input className="td">{data?.second}</input>
-                    <input className="td">{data?.sensor}</input>
-                    <input className="td">{data?.location}</input>
-                    <input className="td">{data?.equipName}</input>
+                    <input className="td"/>
+                    <input className="td"/>
+                    <input className="td"/>
+                    <input className="td"/>
+                    <input className="td"/>
                     <div className="td">
                        <Button size="medium" label="신규등록" color="point"/>
                     </div>
                 </div>
             </div>
             <div className="location-box">
-                <div className="map-box">
-                    <ModifyMap xy={data?.xy} />
-                    <div className="button"><Button label="위치정보 적용" size="large" /></div>
-                </div>
+                    <RegisterMap getPosition={getPosition} />
                 <div className="info-box">
                     <div className="input-box">
-                        <InputBox title="1.위치설명" value={data?.location}/>
-                        <InputBox title="2.토목설비" value={data?.equip}/>
-                        <InputBox title="3.설비명" value={data?.equipName}/>
-                        <InputBox title="4.위치정보(X/Y좌표)" value={data?.xy} readOnly={true}/>
-                        <InputBox title="5.설치일" value={data?.time}/>
-                        <InputBox title="6.진동감지" value={data?.sensor} readOnly={true}/>
+                        <InputBox title="1.위치설명"/>
+                        <InputBox title="2.토목설비"/>
+                        <InputBox title="3.설비명"/>
+                        <InputBox title="4.위치정보(X/Y좌표)" readOnly={true} value={position}/>
+                        <InputBox title="5.설치일"/>
+                        <InputBox title="6.진동감지"readOnly={true}/>
                         <Checkbox onChange={onChange} defaultChecked={check}><span className="checkLabel">알림활성화</span> (체크해제 시 알람 제외)</Checkbox>
                     </div>
                     <div className="button-box">

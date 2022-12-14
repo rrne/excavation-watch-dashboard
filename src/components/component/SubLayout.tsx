@@ -101,7 +101,7 @@ interface SubLayoutProps {
 }
 
 const SubLayout = ({menu, children}:SubLayoutProps) => {
-    return(
+    return (
         <StyledSubLayout>
             <div className="sub-menu-wrap">
                 <SubMenu {...menu} />

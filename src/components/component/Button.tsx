@@ -27,7 +27,7 @@ interface ButtonProps {
    label: string;
    size?: 'small' | 'medium' | 'large';
    color?: 'default'| 'sub' | 'point' | 'red';
-   onClick?: () => void;
+   onClick?: (value:any) => void;
 }
 
 export const Button = ({label, size="large", color="default", onClick}:ButtonProps) => {

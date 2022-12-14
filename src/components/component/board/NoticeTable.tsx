@@ -62,6 +62,9 @@ const StyledNoticeTableWrap = styled.div`
             width: 100%;
         }
     }
+    .ant-table-row{
+      cursor: pointer;
+    }
 `
 const NoticeTableWrap = () => {
     const selectData = ["제목","작성자"];

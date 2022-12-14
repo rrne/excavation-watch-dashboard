@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
-import spot from '@public/image/spot.png'
+import { Button } from '@src/components/component/Button';
 
-type kpostion = {
+export type kpostion = {
     lat: number,
     lng: number
 }
-const ModifyMap = ({xy}:{xy:string | undefined}) => {
+const ModifyMap = ({xy, getPosition}:{xy:string | undefined, getPosition:(value:kpostion) => void}) => {
 
-    const [lng, setLng] = useState<number>(126.5989244)
-    const [lat, setLat] = useState<number>(36.7488573)
+  const [position, setPosition] = useState<kpostion>({
+    lat:36.7488573,
+    lng:126.5989244,
+  })
+  const [lat, setLat] = useState(36.7488573)
+  const [lng, setLng] = useState(126.5989244)
  
-    useEffect(() => {
-        if(!xy) return;
-        setLng(Number(xy?.split('/')[0]))
-        setLat(Number(xy?.split('/')[1]))
-    },[xy])
+  useEffect(() => {
+    if(!xy) return;
+    setPosition({
+      lat:Number(xy?.split('/')[1]),
+      lng:Number(xy?.split('/')[0])
+    })
+    setLat(Number(xy?.split('/')[1]))
+    setLng(Number(xy?.split('/')[0]))
+},[xy])
 
     return (
+         <div className="map-box">
             <Map
                 center={{
                     lat:lat,
@@ -28,26 +37,33 @@ const ModifyMap = ({xy}:{xy:string | undefined}) => {
                     height: "100%",
                 }}
                 level={10}
+                onClick={(_t, mouseEvent) => setPosition({
+                  lat: mouseEvent.latLng.getLat(),
+                  lng: mouseEvent.latLng.getLng(),
+                })}
             >
                 <MapMarker 
-            position={{ lat:lat,
-                lng:lng}}
-            image={{
-              src: spot, // 마커이미지의 주소입니다
-              size: {
-                width: 50,
-                height: 50,
-              }, // 마커이미지의 크기입니다
-              options: {
-                offset: {
-                  x: 25,
-                  y: 65,
-                }, // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-              },
-            }} >
+            position={position}
+            // image={{
+            //   src: spot, // 마커이미지의 주소입니다
+            //   size: {
+            //     width: 50,
+            //     height: 50,
+            //   }, // 마커이미지의 크기입니다
+            //   options: {
+            //     offset: {
+            //       x: 25,
+            //       y:50,
+            //     }, // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+            //   },
+            // }} 
+            >
             </MapMarker>
             </Map>
+              <div className="button"><Button label="위치정보 적용" size="large" onClick={() => getPosition(position)}/></div>
+           </div>
     )
 }
 
 export default ModifyMap;
+

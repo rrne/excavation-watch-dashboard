@@ -2,6 +2,10 @@ import type { NextPage } from 'next';
 import styled from "@emotion/styled"
 import { InstallStatus, NoticeComp, QandAComp, InfoComp } from '@src/components/component/dashboard/BottomComp';
 import MapComp from '@src/components/component/dashboard/Map';
+import { useQuery } from '@tanstack/react-query';
+import { useSetRecoilState } from "recoil";
+import { recoilDashboardGIS, EventList, list } from '@src/states/recoilDashboardState';
+import axios from "axios";
 
 import { Card } from '@src/components/component/Card';
 
@@ -49,6 +53,13 @@ const StyledHome = styled.section`
 `
 
 const Home: NextPage = () => {
+
+  const setRecoilEventState = useSetRecoilState(recoilDashboardGIS);
+   //event list fetch🚀
+   const { isLoading, data, error } = useQuery({ queryKey: ['dashboardGIS'], queryFn: () => axios.get('13.125.250.98:80/api/rule/conduit-vertex-gangwon'), onSuccess :(data) => {
+    setRecoilEventState(data.data);
+},  staleTime: 5000, refetchOnWindowFocus: true,});
+
   return (
     <StyledHome>
       <div className="top">
@@ -65,10 +76,10 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="bottom">
-      <InstallStatus/>
-      <NoticeComp/>
-      <QandAComp/>
-      <InfoComp/>
+        <InstallStatus/>
+        <NoticeComp/>
+        <QandAComp/>
+        <InfoComp/>
       </div>
     </StyledHome>
   )

@@ -30,7 +30,7 @@ export const InstallStatus = () => {
     return(
         <Card>
         <>
-        <Title title='설치현황' date='2021-12-31 14:15'/>
+        <Title title='설치현황' date='2021-12-31 14:15' link='/stats/count/'/>
         <StyledInstallStatus>
             <div className="title-box">
                 <div className="title">진동센서</div>
@@ -108,7 +108,7 @@ export const NoticeComp = () => {
     return(
         <Card>
         <>
-        <Title title='공지사항' />
+        <Title title='공지사항' link='/board' />
         <StyledNoticeBox>
             {notice.map((list, i) => {
                 return(
@@ -150,7 +150,7 @@ export const QandAComp = () => {
     return(
         <Card>
             <>
-            <Title title='Q&A' />
+            <Title title='Q&A' link='/board/qna'/>
                 <StyledQandABox>
                     {QnA.map((list,i) => {
                         return(

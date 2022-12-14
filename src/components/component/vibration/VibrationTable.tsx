@@ -14,6 +14,9 @@ const StyledVibrationTable = styled.div`
         width: 100%;
         height: calc(100% - 34px);
         overflow: hidden;
+      }
+    .ant-table-row{
+      cursor: pointer;
     }
 `
 

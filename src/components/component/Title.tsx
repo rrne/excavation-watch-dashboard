@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
+import { useRouter } from 'next/router';
 
 const TitleBox = styled.div`
     display:flex;
@@ -38,14 +39,20 @@ const MoreBtn = styled.div`
 interface TitleProps {
    title: string
    date?: string
+   link?: string
 }
 
-export const Title = ({title,date}:TitleProps) => {
+export const Title = ({title,date, link}:TitleProps) => {
+    const router = useRouter()
+    const handleMoreLinkPage =() => {
+        if(!link) return;
+        router.push(link)
+    }
     return(
         <TitleBox>
             <h3 className='title'>{title}</h3>
             {date ? <div className='date'>({date})</div> : ""}
-            <MoreBtn>더보기<FontAwesomeIcon icon={faCaretRight}/></MoreBtn>
+            <MoreBtn onClick={handleMoreLinkPage}>더보기<FontAwesomeIcon icon={faCaretRight}/></MoreBtn>
         </TitleBox>
     )
 }

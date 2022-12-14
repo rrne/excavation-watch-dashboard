@@ -67,5 +67,12 @@
                 "link":"/board/qna"
             }
         ]
+    },
+    "admin":{
+        "title": "사용자관리",
+        "titleImg":"admin",
+        "menu":[
+            
+        ]
     }
 }

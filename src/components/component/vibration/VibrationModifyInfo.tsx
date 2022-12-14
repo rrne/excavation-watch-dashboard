@@ -10,6 +10,7 @@ import ModifyMap from "./ModifyMap";
 import { InputBox } from "@src/components/component/InputBox";
 import { Checkbox } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import type { kpostion } from "./ModifyMap";
 
 // 스타일✨
 const StyledModifyInfo = styled.div`
@@ -173,7 +174,6 @@ const VibrationModifyInfo = () => {
         }
         setSelectData(selectArr);
         if(router.query.data) setModifyData(JSON.parse(router.query.data as string))
-
     },[])
 
     return(
@@ -205,15 +205,26 @@ const VibrationModifyInfo = () => {
 
 export default VibrationModifyInfo;
 
-
 // 수정 테이블 자식 컴포넌트
 const ModifyTable = ({data}:{data : DataType | undefined}) => {
     
     const [check, setCheck] = useState<boolean>(true);
+    const [modifyData, setModifyData] = useState<DataType>()
     const columns = ["1차사업소","2차사업소","센서번호","위치설명","설비명","구분"]
     const onChange = (e: CheckboxChangeEvent) => {
         console.log(`checked = ${e.target.checked}`);
       };
+
+      useEffect(() => {
+        if(!data) return;
+        setModifyData(data);
+      },[data])
+
+      const getPosition = (value:kpostion) => {
+        if(!modifyData) return;
+        const inputPos = `${value.lng.toFixed(7)}/${value.lat.toFixed(7)}`
+        setModifyData({...modifyData, xy:inputPos})
+      }
 
     return(
         <div className="modify-table">
@@ -226,11 +237,11 @@ const ModifyTable = ({data}:{data : DataType | undefined}) => {
                     )})}
                 </div>
                 <div className="tbody">
-                <input className="td" defaultValue={data?.first} />
-                    <input className="td" defaultValue={data?.second} />
-                    <input className="td" defaultValue={data?.sensor} />
-                    <input className="td" defaultValue={data?.location} />
-                    <input className="td" defaultValue={data?.equipName} />
+                    <input className="td" defaultValue={modifyData?.first} />
+                    <input className="td" defaultValue={modifyData?.second} />
+                    <input className="td" defaultValue={modifyData?.sensor} />
+                    <input className="td" defaultValue={modifyData?.location} />
+                    <input className="td" defaultValue={modifyData?.equipName} />
                     <div className="td">
                        <Button size="medium" label="수정" color="point"/>
                        <Button size="medium" label="삭제" color="red"/>
@@ -238,23 +249,20 @@ const ModifyTable = ({data}:{data : DataType | undefined}) => {
                 </div>
             </div>
             <div className="location-box">
-                <div className="map-box">
-                    <ModifyMap xy={data?.xy} />
-                    <div className="button"><Button label="위치정보 적용" size="large" /></div>
-                </div>
+                    <ModifyMap xy={modifyData?.xy} getPosition={getPosition} />
                 <div className="info-box">
                     <div className="input-box">
-                        <InputBox title="1.위치설명" value={data?.location}/>
-                        <InputBox title="2.토목설비" value={data?.equip}/>
-                        <InputBox title="3.설비명" value={data?.equipName}/>
-                        <InputBox title="4.위치정보(X/Y좌표)" value={data?.xy} readOnly={true}/>
-                        <InputBox title="5.설치일" value={data?.time}/>
-                        <InputBox title="6.진동감지" value={data?.sensor} readOnly={true}/>
+                        <InputBox title="1.위치설명" value={modifyData?.location}/>
+                        <InputBox title="2.토목설비" value={modifyData?.equip}/>
+                        <InputBox title="3.설비명" value={modifyData?.equipName}/>
+                        <InputBox title="4.위치정보(X/Y좌표)" value={modifyData?.xy} readOnly={true}/>
+                        <InputBox title="5.설치일" value={modifyData?.time}/>
+                        <InputBox title="6.진동감지" value={modifyData?.sensor} readOnly={true}/>
                         <Checkbox onChange={onChange} defaultChecked={check}><span className="checkLabel">알림활성화</span> (체크해제 시 알람 제외)</Checkbox>
                     </div>
                     <div className="button-box">
-                    <Button label="센서상태 초기화" size="large" color="sub"/>
-                    <Button label="저장" size="large"/>
+                        <Button label="센서상태 초기화" size="large" color="sub" />
+                        <Button label="저장" size="large" />
                     </div>
                 </div>
             </div>
