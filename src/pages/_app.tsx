@@ -5,13 +5,24 @@ import {reset} from '@src/styles/global.js'
 import '@src/styles/antd.less';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RecoilRoot } from 'recoil';
+import axios from 'axios';
 
 import Layout from '@src/components/layout/Layout'
 
 import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const queryClient = new QueryClient()
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        cacheTime: 1000 * 60 * 60 * 24,
+        staleTime: 1000 * 60,
+        refetchOnMount: false,
+        refetchOnReconnect: false,
+        refetchOnWindowFocus: false,
+      },
+    },
+  })
   return (
     <>
      <Global
@@ -33,8 +44,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     
     </>
   )
-  
-  
 }
+export default MyApp;
 
-export default MyApp
+axios.defaults.baseURL = "http://13.125.99.70:9001";
+axios.defaults.withCredentials = true;
