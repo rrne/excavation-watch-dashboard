@@ -43,7 +43,7 @@ interface TitleProps {
 }
 
 export const Title = ({title,date, link}:TitleProps) => {
-    const router = useRouter()
+    const router = useRouter();
     const handleMoreLinkPage =() => {
         if(!link) return;
         router.push(link)

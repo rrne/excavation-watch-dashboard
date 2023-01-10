@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { DataType } from "./AdminTableWrap";
 import {useForm} from 'react-hook-form';
 import { Button } from "../Button";
-import { useEffect, useState } from "react";
 import SelectComp from "../Select";
 import { message } from 'antd';
 

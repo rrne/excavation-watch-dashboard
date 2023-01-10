@@ -70,7 +70,7 @@ const StyledMenu = styled.div`
     width: 36px;
   }
 `
-const linked = [
+export const linked = [
   {
     title: "종합현황",
     img: "dashboard",
@@ -80,6 +80,11 @@ const linked = [
     title: "진동센서관리",
     img: "vibration",
     link: "vibration"
+  },
+  {
+    title: "단말기관리",
+    img: "vibration",
+    link: "terminal"
   },
   {
     title: "사용자알람설정",

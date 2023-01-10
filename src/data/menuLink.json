@@ -17,6 +17,24 @@
             }
         ]
     },
+    "terminal": {
+        "title": "단말기관리",
+        "titleImg":"terminal",
+        "menu":[
+            {
+                "title":"등록현황",
+                "link":"/terminal"
+            },
+            {
+                "title":"수정/삭제",
+                "link":"/terminal/modify"
+            },
+            {
+                "title":"신규등록",
+                "link":"/terminal/register"
+            }
+        ]
+    },
     "userEvent":{
         "title": "사용자알람설정",
         "titleImg":"user-event",
